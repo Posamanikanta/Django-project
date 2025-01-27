@@ -20,7 +20,7 @@ from app10.views import index,About,Contact,Courses,Faculty,Register,Login,Logou
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('index/',index),
+    path('',index),
     path('About/',About),
     path('Contact/',Contact),
     path('Courses/',Courses),
