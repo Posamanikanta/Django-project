@@ -1,0 +1,91 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+         *{
+            margin:0px;
+        }
+        body{
+           background-image:url('{% static "images/background.png"%}');
+           background-size: cover;
+           background-repeat: no-repeat;
+        }
+        .body{
+            background-color:  rgb(23, 19, 19); ;
+            border:1px goldenrod solid;
+            /* border-radius: 8px; */
+            height:550px;
+            margin-top:100px;
+            margin-left:30%;
+            margin-right:30%;
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+        }
+        input{
+            margin:10px;
+            width:150px;
+            height:20px;
+            text-align: center;
+        }
+        input[type=submit]{
+            width:53%;
+            height:40px;
+            border:2px rgb(50, 48, 48) solid;
+            border-radius: 8px;
+            background-color: aquamarine;
+        }
+        .inside-panel{
+            display:flex;
+            justify-content:end;
+            align-items: center;
+        }
+        .welcome{
+            color:rgb(140, 255, 0);
+            height:150px;
+            width:100%;
+            display:flex;
+            justify-content: center;
+            align-items:end;
+        }
+
+    </style>
+</head>
+<body>
+    <form method="post" action="/Register/">
+        {% csrf_token %}
+        <div class="welcome">
+            <h2 style="color:antiquewhite">Register</h2>
+        </div>
+        
+    <div class="body">
+        <input type="text" placeholder="username" name="username"><br><br>
+        <input type="text" placeholder="full_name" name="full_name"><br><br>
+        <input type="number" placeholder="mobile no." name="mobile"><br><br>
+        <input type="email" placeholder="email" name="email"><br><br>
+        <input type="password" placeholder="password" name="password1"><br><br>
+        <input type="password" placeholder="password" name="password2"><br><br>
+        <input type="submit" value="signup">
+        <div class="inside-panel">
+            <i class="fa-solid fa-arrow-left-long" style="color:goldenrod"></i>
+            <a href="/index/" style="color:goldenrod; text-decoration: none;">Back</a>
+        </div>
+    </div>
+    </form>
+    {{error}}
+</body>
+</html>
+
+
+    
+        
+    
+    

@@ -1,0 +1,232 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        *{
+            margin:0px; 
+        }
+        .nav-bar{
+            background-color:rgba(0, 0, 0, 1);
+            height:60px;
+            display:flex;
+            
+    
+        }
+        .nav-logo{
+
+            background-image: url('{% static "images/manis_logo.png" %}');
+            background-size:cover;
+            background-repeat: no-repeat;
+            height:58px;
+            width:70px;
+            margin-left:10px
+            
+        }
+        .nav-items {
+            width:100%;
+            display: flex;
+            justify-content:space-evenly;
+            align-items: center;   
+        }
+        .nav-items a{
+            color:white;
+            text-decoration: none;
+
+        }
+        .border a:hover{
+            border-bottom:2px solid goldenrod;
+            transition-property: all;
+            transition-timing-function:ease-in; 
+        }
+        .main-section{
+            background-color: rgb(23, 19, 19);           
+            height:800px;
+            width:100%;
+        }
+        .main-img{
+            background-image: url('{% static "images/Bookself.jpg" %}');
+            background-size: cover;
+            background-repeat: no-repeat;
+            height:50%;
+            width:100%;
+        }
+        .main-img h2{
+            color:rgb(176, 212, 216);
+            height:100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: xxx-large;
+            font-weight:bolder;
+        }
+        .main-content{
+            /* border:2px solid green; */
+            background-color: #191919;
+            height:200px;
+            width:100%;
+            display:flex;
+            align-items: center; 
+            justify-content: space-evenly; 
+        }
+        .box1{
+            background-color: hsla(33, 78%, 91%, 0.946);
+            border-radius: 9px;
+            height:250px;
+            width:250px;
+            position:relative;
+            bottom:100px
+        }
+        .box-title{
+            height:25px;
+            margin-top: 10px;
+            text-align: center;
+        }
+        .box-img{
+            height:60%;
+            font-size: xxx-large;
+            font-weight:bolder;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .box-enroll{
+            color:brown;
+            font-size:large;
+            background-color: rgb(27, 114, 114);
+            border-radius: 12px;
+            height:32px;
+            margin-top: 30px;
+            margin-left: 40px;
+            margin-right:40px;
+            display: flex;
+            justify-content: center;
+            align-items:center;
+        }
+        .main1{
+            /* border:2px solid green; */
+            height:200px;
+            position:relative;
+            bottom:60px;
+            background-color: #191919;
+        }
+        .main1-input{
+            position:relative;
+            top:100px;
+            display: flex;
+            justify-content:space-evenly;
+            align-items: center;
+            padding-left: 100px;
+            padding-right: 150px;
+
+        }
+        .foot-1{
+            height:55px;
+            position:relative;
+            bottom:60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+
+        }
+
+
+    </style>
+</head>
+<body>
+    <head>
+        <div class="nav-bar">
+            <div class="nav-logo">
+            </div>
+            <div class="nav-items border">
+                <a href="/About/">About</a>
+                <a href="/Contact/">Contact</a>
+                <a href="/Courses/">Courses</a>
+                <a href="/Faculty/">Faculty</a>
+                {% if user.is_authenticated %}
+                    <p style="color:goldenrod;font-style:oblique;font-size:larger;">Welcome, {{ user.username }}!</p>
+                <a href="/Logout/">Logout</a>
+                {% else %}
+                <a href="/Register/">Register</a>
+                <a href="/Login/">Login</a>
+                {% endif %}
+            </div> 
+        </div>         
+    </head>
+    <div class="main-section">
+        <div class="main-img">
+                <h2>Better Education For A <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Better World</h2>
+        </div>
+        <div class="main-content">
+            <div class="box1">
+                <div class="box-title">
+                    <h3>JAVA</h3>
+                </div>
+                <div class="box-img">
+                    <i class="fa-brands fa-java"></i>
+                </div>
+                <div class="box-enroll">
+                    <h3><a href="/Register/" style="text-decoration: none;color: #1e2023;">Enroll</a></h3>
+                </div>
+            </div>
+            <div class="box1">
+                <div class="box-title">
+                    <h3>PYTHON</h3>
+                </div>
+                <div class="box-img">
+                    <i class="fa-brands fa-python"></i>
+                </div>
+                <div class="box-enroll">
+                    <h3><a href="/Register/" style="text-decoration: none;color: #1e2023;">Enroll</a></h3>
+                </div>
+            </div>
+            <div class="box1">
+                <div class="box-title">
+                    <h3>FRONT-END</h3>
+                </div>
+                <div class="box-img">
+                    <i class="fa-regular fa-file-code"></i>
+                </div>
+                <div class="box-enroll">
+                    <h3><a href="/Register/" style="text-decoration: none;color: #1e2023;">Enroll</a></h3>
+                </div>
+            </div>
+
+        </div>
+        <div class="main1">
+            <form action="/Register/">
+                {%csrf_token%}
+            <div class="main1-input">
+                <input type="text" placeholder="Name" style="height: 40px;width:250px;border-radius: 8px;border: 2px solid black;padding-left: 12px;font-size: 15px;">
+                <input type="email" placeholder="Email" style="height: 40px;width:250px;border-radius: 8px;border: 2px solid black;padding-left: 12px;font-size: 15px;">
+                <button style="height: 40px;width:150px;border-radius: 8px;border: 2px solid black;padding-left: 12px;font-size: 15px; background-color: rgba(228, 27, 104, 0.95);color:antiquewhite">Sign Up Now</button></form>
+            </div>
+        </div>
+        <footer class="foot-1">
+                <div class="footer-content">
+                    <p style="color:antiquewhite">&copy; 2024 Your Company. All Rights Reserved.</p>
+                    <nav class="footer-nav">
+                        <a href="#" style="text-decoration: none;">Privacy Policy</a> |
+                        <a href="#" style="text-decoration: none;">Terms of Service</a> |
+                        <a href="#" style="text-decoration: none;">Contact Us</a>
+                    </nav>
+                </div>
+            </footer>
+    </div>
+    
+    
+
+</body>
+</html>
+
+
+
+
+    

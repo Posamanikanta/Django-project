@@ -1,0 +1,159 @@
+<!-- {%include 'index.html'%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        *{
+            margin:0px;
+        }
+        body{
+            background-color: blanchedalmond;
+        }
+        .welcome{
+            height:200px;
+            width:100%;
+            display:flex;
+            justify-content: center;
+            align-items:end;
+        }
+        .body{
+            background-color: rgb(97, 88, 88);
+            border-bottom:1px goldenrod solid;
+            /* border-radius: 8px; */
+            height:450px;
+            margin-left:40%;
+            margin-right:40%;
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+        }
+        input{
+            margin:10px;
+            width:150px;
+            text-align: center;
+        }
+        input[type=submit]{
+            width:53%;
+            border:2px rgb(50, 48, 48) solid;
+            border-radius: 8px;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <div class="welcome">
+            <h2>Welcome</h2>
+        </div>
+        <div class="body">
+            <input type='email' placeholder="Enter the Email"><br>
+            <input type="password" placeholder="Enter the Password"><br>
+            <input type="Submit" value="Login">
+            <p style="color:antiquewhite">Don't have an Account <a href="/Register/"  style="color: aquamarine;opacity: 0.6;">SignIn</a></p>
+    
+        </div>
+    </form>
+        
+</body>
+</html> -->
+<!-- {%include 'index.html'%} -->
+ {%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        *{
+            margin:0px;
+        }
+        body{
+        
+            background-image: url('{% static "images/background.png" %}');
+            background-size: cover;
+            background-repeat: no-repeat;
+            
+        }
+        
+        .welcome{
+            color:rgb(140, 255, 0);
+            height:200px;
+            width:100%;
+            display:flex;
+            justify-content: center;
+            align-items:end;
+        }
+        .body{
+            background-color:  rgb(23, 19, 19); ;
+            border:1px goldenrod solid;
+            /* border-radius: 8px; */
+            height:450px;
+            margin-left:30%;
+            margin-right:30%;
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+        }
+        input{
+            margin:10px;
+            width:150px;
+            height:20px;
+            text-align: center;
+        }
+        input[type=submit]{
+            width:53%;
+            height:40px;
+            border:2px rgb(50, 48, 48) solid;
+            border-radius: 8px;
+            background-color: aquamarine;
+        }
+        .inside-panel{
+            display:flex;
+            justify-content:end;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <form method="post" action="/Login/">
+        {%csrf_token%}
+        <div class="welcome">
+            <h2>Welcome</h2>
+        </div>
+        <div class="body">
+            <input type="text" placeholder="username" name="username"><br><br>
+            <input type="password" placeholder="password" name="password1"><br><br>
+            <input type="submit" value="login">
+            <p style="color:antiquewhite">Don't have an Account <a href="/Register/"  style="color: aquamarine;opacity: 0.6;">SignIn</a></p>
+
+            <div class="inside-panel">
+                <i class="fa-solid fa-arrow-left-long" style="color:goldenrod"></i>
+                <a href="/index/" style=" color:goldenrod;text-decoration: none;">Back</a>
+            </div>
+        </div>
+        </div>
+    </form>
+    {% for message in messages %}
+            <p style="color:brown;font-size:x-large;">{{ message }}</p>
+        {% endfor %}
+    
+        
+</body>
+</html>
+
+
+    
+
+
+
+
